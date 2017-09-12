@@ -45,7 +45,7 @@ class Crud {
       doc.createdAt = new Date()
       const res = yield col.insertOne(doc)
 
-      callback(null, res)
+      callback(null, res.ops[0])
 
     }).catch((err) => {
       logger.error(err)
@@ -67,14 +67,14 @@ class Crud {
       logger.info('Successfully connect to: ', STRING_CONNECTION)
 
       doc.updatedAt = new Date()
-      const res = yield col.updateOne({
+      const res = yield col.findOneAndUpdate({
         _id: id
       }, {
         $set: doc
       }, {
         returnOriginal: false
       })
-      callback(null, res)
+      callback(null, res.value)
 
     }).catch((err) => {
       logger.error(err)
