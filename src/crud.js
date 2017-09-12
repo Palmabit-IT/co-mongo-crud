@@ -107,7 +107,7 @@ class Crud {
     })
   }
 
-  getOne(id, callback) {
+  getOne(query, callback) {
 
     const STRING_CONNECTION = this.STRING_CONNECTION
     const COLLECTION_NAME = this.COLLECTION_NAME
@@ -118,9 +118,7 @@ class Crud {
       const col = db.collection(COLLECTION_NAME)
 
       logger.info('Successfully connect to: ', STRING_CONNECTION)
-      const res = yield col.findOne({
-        _id: id
-      })
+      const res = yield col.findOne(query)
       callback(null, res)
 
     }).catch((err) => {
