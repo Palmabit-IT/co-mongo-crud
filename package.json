@@ -1,0 +1,24 @@
+{
+  "name": "co-mongo-crud",
+  "version": "1.0.0",
+  "description": "Crud with mongoDb and co",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha ./tests/*.js",
+    "test-travis": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./tests/*"
+  },
+  "author": "Palmabit <hello@palmabit.com> (http://www.palmabit.com/)",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-subset": "^1.6.0",
+    "faker": "^3.1.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.3"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "mongodb": "^2.2.31",
+    "pino": "^4.7.1"
+  }
+}
