@@ -31,6 +31,28 @@ class Crud {
     })
   }
 
+  aggregate({ stages = [], sort = { createdAt: -1 }, skip = 0, limit = 10 }, callback) {
+
+    const STRING_CONNECTION = this.STRING_CONNECTION
+    const COLLECTION_NAME = this.COLLECTION_NAME
+
+    co(function*() {
+
+      const db = yield connectToDatabase(STRING_CONNECTION)
+      const col = db.collection(COLLECTION_NAME)
+
+      logger.info('Successfully connect to: ', STRING_CONNECTION)
+      const docs = yield col.aggregate(stages).sort(sort).skip(skip).limit(limit).toArray()
+
+      callback(null, docs)
+
+    }).catch((err) => {
+      logger.error(err)
+      callback(err)
+
+    })
+  }
+
   add(doc, callback) {
 
     const STRING_CONNECTION = this.STRING_CONNECTION

@@ -1,6 +1,6 @@
 {
   "name": "co-mongo-crud",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Crud with mongoDb and co",
   "main": "index.js",
   "scripts": {
