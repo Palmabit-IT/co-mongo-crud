@@ -17,6 +17,11 @@ const fakePost = {
   author: 'palmabit'
 }
 
+const fakePost1 = {
+  title: 'post1',
+  author: 'palmabit'
+}
+
 describe('LIST', () => {
 
   beforeEach((done) => {
@@ -72,6 +77,35 @@ describe('LIST', () => {
         expect(docs[0].title).to.be.equal('post')
 
         done()
+      })
+    })
+  })
+
+  it('should support aggregation', (done) => {
+
+    const stages = [
+      {
+        $group: {
+          _id: '$author',
+          title: { $push: '$title' }
+        }
+      }
+    ]
+
+    crud.add(fakePost, () => {
+      crud.add(fakePost1, () => {
+        crud.aggregate({ stages: stages }, (err, docs) => {
+          expect(docs).to.be.an('array')
+          expect(docs).to.have.lengthOf(1)
+          expect(docs[0]).to.have.property('_id')
+          expect(docs[0]).to.have.property('title')
+          expect(docs[0]._id).to.equal('palmabit')
+          expect(docs[0].title).to.be.an('array')
+          expect(docs[0].title).to.have.lengthOf(2)
+          expect(docs[0].title[0]).to.equal('post')
+          expect(docs[0].title[1]).to.equal('post1')
+          done()
+        })
       })
     })
   })
