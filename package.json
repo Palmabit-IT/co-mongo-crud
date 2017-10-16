@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha ./tests/*.js",
-    "test-travis": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./tests/*"
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./tests/*"
   },
   "author": "Palmabit <hello@palmabit.com> (http://www.palmabit.com/)",
   "license": "UNLICENSED",

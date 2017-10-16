@@ -2,6 +2,9 @@
 
 Crud with mongoDb and co
 
+[![Build Status](https://travis-ci.org/Palmabit-IT/co-mongo-crud.svg?branch=master)](https://travis-ci.org/Palmabit-IT/co-mongo-crud)
+
+
 ## Installation
 
 ```
