@@ -1,6 +1,9 @@
 language: node_js
 node_js:
-  - "6.11.4"
-  - "8.7.0"
-script: "npm run coverage"
-after_script: "npm install coveralls@2.10.0 && cat ./coverage/lcov.info | coveralls"
+- 6.11.4
+- 8.7.0
+script: npm run coverage
+after_script: npm install coveralls@2.10.0 && cat ./coverage/lcov.info | coveralls
+notifications:
+  slack:
+    secure: ePsrdSrkacbzfgnEGdKCqmarXWCGGKGq6rzTBSf8xeuKa4U+3D07Q8kxzOADw+OoEJsba/nBns9iyBHFhNdS4Pla+IvqSdm6bElJ6oJ/mQyq8+WUh7yeKMxN7ZX31ubn/wc9q7lass9Zmc4awB9y3980OFloustaCwisIzTYJqlDyFwP6Au81pRNfhBhScD3woPegO7IdyQSeQQ78oCzdt8lUbp7HyXRaaXrFRZLgcZfxBp371WkdbQ5jR3nn5IPrOEz3qWUCco69dMEunU78EoVatYib2O5fqAjvJkuJN0mMN8uBUEsgMbHbJZ6s/bOn/HaGKy6eaqm1e8037Di2Pjg2EBnK6uSP6mNzd1eP8P2Oynd8SCIizQ0HkfCcS0ZnYkYzgPKwPTgVumlenwkfNgU3Bi9z6NQz0zPbOHMA5oz+6LGbWbbF0Ob3ZEN6bGLxmD1u2BTLzF9niIJWsw0eI0nxpyKbnuDzxZH3Uom88VHlgcu4KwP5tEetfcnQCAU7Cj8Q2HV/FfLdr5O7yULdZDVtfFuZhzChpgg1Spu9FKxhwOMVPlRlWEsCAMo6WILm20ymHvxAo3M3aDQBjfgi3KcUuk6U/jEwUVOBB3wCBFqE9UkENuv9KGL0INOKW2GhoJdXRtCYN4QXUqlh4BfNY8tGTfz13QTwcKcSguZplY=
