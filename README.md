@@ -1,6 +1,6 @@
 # lambda mongo crud
 
-Crud with mongoDb and co
+Crud with mongoDb and co. It works with node 6+.
 
 [![Build Status](https://travis-ci.org/Palmabit-IT/co-mongo-crud.svg?branch=master)](https://travis-ci.org/Palmabit-IT/co-mongo-crud)
 
