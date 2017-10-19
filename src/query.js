@@ -1,14 +1,6 @@
 function buildSearchOptions(search, keys) {
 
-  return keys.map((key) => {
-    return {
-      key: key,
-      value: new RegExp(search)
-    }
-  }).reduce((curr, acc) => {
-    curr[acc.key] = acc.value
-    return curr
-  }, {})
+  return keys.map(key => ({ [key]: new RegExp(`.*${search}.*`, 'i') }))
 }
 
 function buildSortOptions(sort) {
@@ -40,11 +32,12 @@ function buildSortObj(item) {
   return sortObj
 }
 
-function buildQueryOptions(querystring = {}, keys) {
+function buildQueryOptions(querystring = {}) {
   const options = {}
 
-  if (querystring && querystring.q) {
-    options.query = buildSearchOptions(querystring.q, keys)
+  if (querystring && querystring.search && querystring.keywords) {
+    const keywords = Array.isArray(querystring.keywords) ? querystring.keywords : [querystring.keywords]
+    options.query = { $or: buildSearchOptions(querystring.search, keywords) }
   }
 
   if (querystring && querystring.sort) {

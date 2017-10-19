@@ -9,7 +9,7 @@ class Crud {
     this.COLLECTION_NAME = collectionName
   }
 
-  list({ query = {}, sort = [], skip = 0, limit = 10 }, callback) {
+  list({ query = {}, sort = {}, skip = 0, limit = 10 }, callback) {
 
     const STRING_CONNECTION = this.STRING_CONNECTION
     const COLLECTION_NAME = this.COLLECTION_NAME
