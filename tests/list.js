@@ -110,5 +110,16 @@ describe('LIST', () => {
     })
   })
 
+  it('count', (done) => {
+
+    crud.add(fakePost, (err, docs) => {
+
+      crud.count({ title: 'post' }, (err, count) => {
+        expect(count).to.be.equal(1)
+        done()
+      })
+    })
+  })
+
 })
 

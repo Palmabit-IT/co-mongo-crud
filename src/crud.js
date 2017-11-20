@@ -14,7 +14,7 @@ class Crud {
     const STRING_CONNECTION = this.STRING_CONNECTION
     const COLLECTION_NAME = this.COLLECTION_NAME
 
-    co(function*() {
+    co(function* () {
 
       const db = yield connectToDatabase(STRING_CONNECTION)
       const col = db.collection(COLLECTION_NAME)
@@ -36,7 +36,7 @@ class Crud {
     const STRING_CONNECTION = this.STRING_CONNECTION
     const COLLECTION_NAME = this.COLLECTION_NAME
 
-    co(function*() {
+    co(function* () {
 
       const db = yield connectToDatabase(STRING_CONNECTION)
       const col = db.collection(COLLECTION_NAME)
@@ -58,7 +58,7 @@ class Crud {
     const STRING_CONNECTION = this.STRING_CONNECTION
     const COLLECTION_NAME = this.COLLECTION_NAME
 
-    co(function*() {
+    co(function* () {
 
       const db = yield connectToDatabase(STRING_CONNECTION)
       const col = db.collection(COLLECTION_NAME)
@@ -81,7 +81,7 @@ class Crud {
     const STRING_CONNECTION = this.STRING_CONNECTION
     const COLLECTION_NAME = this.COLLECTION_NAME
 
-    co(function*() {
+    co(function* () {
 
       const db = yield connectToDatabase(STRING_CONNECTION)
       const col = db.collection(COLLECTION_NAME)
@@ -92,10 +92,10 @@ class Crud {
       const res = yield col.findOneAndUpdate({
         _id: id
       }, {
-        $set: doc
-      }, {
-        returnOriginal: false
-      })
+          $set: doc
+        }, {
+          returnOriginal: false
+        })
       callback(null, res.value)
 
     }).catch((err) => {
@@ -110,7 +110,7 @@ class Crud {
     const STRING_CONNECTION = this.STRING_CONNECTION
     const COLLECTION_NAME = this.COLLECTION_NAME
 
-    co(function*() {
+    co(function* () {
 
       const db = yield connectToDatabase(STRING_CONNECTION)
       const col = db.collection(COLLECTION_NAME)
@@ -134,7 +134,7 @@ class Crud {
     const STRING_CONNECTION = this.STRING_CONNECTION
     const COLLECTION_NAME = this.COLLECTION_NAME
 
-    co(function*() {
+    co(function* () {
 
       const db = yield connectToDatabase(STRING_CONNECTION)
       const col = db.collection(COLLECTION_NAME)
@@ -142,6 +142,27 @@ class Crud {
       logger.info('Successfully connect to: ', STRING_CONNECTION)
       const res = yield col.findOne(query)
       callback(null, res)
+
+    }).catch((err) => {
+      logger.error(err)
+      callback(err)
+
+    })
+  }
+
+  count(query, callback) {
+
+    const STRING_CONNECTION = this.STRING_CONNECTION
+    const COLLECTION_NAME = this.COLLECTION_NAME
+
+    co(function* () {
+
+      const db = yield connectToDatabase(STRING_CONNECTION)
+      const col = db.collection(COLLECTION_NAME)
+
+      logger.info('Successfully connect to: ', STRING_CONNECTION)
+      const count = yield col.count(query)
+      callback(null, count)
 
     }).catch((err) => {
       logger.error(err)
