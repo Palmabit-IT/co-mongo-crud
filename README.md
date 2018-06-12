@@ -8,7 +8,7 @@ Crud with mongoDb and co. It works with node 6+.
 ## Installation
 
 ```
-npm install co-mongo-crud --save
+npm install @palmabit/co-mongo-crud --save
 ```
 
 ## Usage
