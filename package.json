@@ -1,6 +1,6 @@
 {
   "name": "@palmabit/co-mongo-crud",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Crud with mongoDb and co",
   "main": "index.js",
   "scripts": {
