@@ -1,4 +1,4 @@
-# lambda mongo crud
+# Co mongo crud
 
 Crud with mongoDb and co. It works with node 6+.
 
@@ -33,7 +33,7 @@ npm test
 ### Coverage
 
 ```
-npm run-script test-travis
+npm run-script coverage
 ```
 
 ## Author
