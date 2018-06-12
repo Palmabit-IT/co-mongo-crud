@@ -4,8 +4,8 @@
   "description": "Crud with mongoDb and co",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha ./tests/*.js",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./tests/*"
+    "test": "./node_modules/.bin/mocha ./tests/*.js --exit",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./tests/* --exit"
   },
   "author": "Palmabit <hello@palmabit.com> (http://www.palmabit.com/)",
   "license": "UNLICENSED",
@@ -14,7 +14,7 @@
     "chai-subset": "^1.6.0",
     "faker": "^3.1.0",
     "istanbul": "^0.4.5",
-    "mocha": "^3.5.3"
+    "mocha": "^5.2.0"
   },
   "dependencies": {
     "co": "^4.6.0",
