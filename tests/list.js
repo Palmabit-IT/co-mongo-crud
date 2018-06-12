@@ -29,9 +29,10 @@ describe('LIST', () => {
     MongoClient.connect(stringConnection, (err, db) => {
 
       let collection = db.collection(tableName)
-      collection.remove()
-      db.close()
-      done()
+      collection.remove(() => {
+        db.close()
+        done()
+      })
 
     })
   })
@@ -40,9 +41,10 @@ describe('LIST', () => {
     MongoClient.connect(stringConnection, (err, db) => {
 
       let collection = db.collection(tableName)
-      collection.remove()
-      db.close()
-      done()
+      collection.remove(() => { 
+        db.close()
+        done()
+      })
 
     })
   })
@@ -112,9 +114,9 @@ describe('LIST', () => {
 
   it('count', (done) => {
 
-    crud.add(fakePost, (err, docs) => {
+    crud.add({ title: 'countPost' }, (err, docs) => {
 
-      crud.count({ title: 'post' }, (err, count) => {
+      crud.count({ title: 'countPost' }, (err, count) => {
         expect(count).to.be.equal(1)
         done()
       })

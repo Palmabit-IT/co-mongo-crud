@@ -12,6 +12,10 @@
     "crud",
     "co"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Palmabit-IT/co-mongo-crud.git"
+  },
   "author": "Palmabit <hello@palmabit.com> (http://www.palmabit.com/)",
   "license": "UNLICENSED",
   "devDependencies": {

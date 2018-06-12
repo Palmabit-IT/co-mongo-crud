@@ -19,9 +19,10 @@ describe('CRUD', () => {
     MongoClient.connect(stringConnection, (err, db) => {
 
       let collection = db.collection(tableName)
-      collection.remove()
-      db.close()
-      done()
+      collection.remove(() => {
+        db.close()
+        done()
+      })
 
     })
   })
@@ -30,9 +31,10 @@ describe('CRUD', () => {
     MongoClient.connect(stringConnection, (err, db) => {
 
       let collection = db.collection(tableName)
-      collection.remove()
-      db.close()
-      done()
+      collection.remove(() => { 
+        db.close()
+        done()
+      })
 
     })
   })
